@@ -10,7 +10,7 @@ export default function VendorSetupGate({ children }: { children: ReactNode }) {
 	if (vendor) return <>{children}</>;
 	const save = () => {
 		const stallNumber = Number(stall);
-		if (!Number.isInteger(stallNumber) || stallNumber < 1 || stallNumber > 20 || !name.trim()) { toast.error('Enter a stall number from 1 to 20 and your name.'); return; }
+		if (!Number.isInteger(stallNumber) || stallNumber < 1 || stallNumber > 100 || !name.trim()) { toast.error('Enter a stall number from 1 to 100 and your name.'); return; }
 		setVendor({ id: `vendor-stall${stallNumber}`, stallNumber: String(stallNumber), name: name.trim() });
 		toast.success('Profile saved.');
 	};

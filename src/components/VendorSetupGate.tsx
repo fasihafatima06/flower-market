@@ -67,7 +67,8 @@ export default function VendorSetupGate({ children }: { children: React.ReactNod
                 className="w-full h-14 text-3xl font-bold text-center rounded-xl border-2 border-border bg-input focus:outline-none focus:border-primary transition-colors font-tabular"
                 {...register('stallNumber', {
                   required: 'Stall number is required',
-                  min: { value: 1, message: 'Enter a valid stall number' },
+                  min: { value: 1, message: 'Enter a stall number from 1 to 100' },
+                  max: { value: 100, message: 'Enter a stall number from 1 to 100' },
                 })}
               />
               {errors.stallNumber && (

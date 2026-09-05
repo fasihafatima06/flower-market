@@ -295,6 +295,10 @@ export const usePhoolFlowStore = create<PhoolFlowState>()(
       handoffCart: (cartId, toStall, toName, toVendorId) => {
         const s = get();
         if (!s.vendor) return { success: false, message: 'No vendor profile.' };
+        const recipientStall = Number(toStall);
+        if (!Number.isInteger(recipientStall) || recipientStall < 1 || recipientStall > 100) {
+          return { success: false, message: 'Receiving stall must be between 1 and 100.' };
+        }
         const cart = s.carts.find((c) => c.id === cartId);
         if (!cart) return { success: false, message: 'Cart not found.' };
         if (cart.currentHolderVendorId !== s.vendor.id) return { success: false, message: 'You can only hand off a cart you currently hold.' };

@@ -13,6 +13,7 @@ FlowerMandi is a simple mobile app for flower vendors who share handcarts and un
 - Book one of 4 unloading bays in 15-minute slots.
 - See free, booked, active, and overdue bays.
 - Use the app with a stall number and name. No password is needed.
+- Stall numbers can be from `1` to `100`.
 - Keep the current work after refreshing the page on the same phone.
 - Use large buttons designed for small mobile screens.
 

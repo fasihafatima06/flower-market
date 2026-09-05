@@ -80,20 +80,22 @@ export function CartDetailSheet({
   };
 
   const handleHandoff = () => {
-    if (!handoffStall.trim()) {
-      toast.error('Enter the stall number to transfer to.');
+    const recipientStall = Number(handoffStall);
+    if (!Number.isInteger(recipientStall) || recipientStall < 1 || recipientStall > 100) {
+      toast.error('Enter a receiving stall number from 1 to 100.');
       return;
     }
-    if (handoffStall.trim() === vendor?.stallNumber) {
+    const recipientStallText = String(recipientStall);
+    if (recipientStallText === vendor?.stallNumber) {
       toast.error('You cannot hand off a cart to yourself.');
       return;
     }
     run(() =>
       handoffCart(
         cart.id,
-        handoffStall.trim(),
-        handoffName.trim() || `Stall ${handoffStall.trim()}`,
-        `vendor-stall${handoffStall.trim()}`
+        recipientStallText,
+        handoffName.trim() || `Stall ${recipientStallText}`,
+        `vendor-stall${recipientStallText}`
       )
     );
   };
@@ -326,8 +328,10 @@ export function CartDetailSheet({
               type="number"
               inputMode="numeric"
               value={handoffStall}
-              onChange={(e) => setHandoffStall(e.target.value)}
+              onChange={(e) => setHandoffStall(e.target.value.replace(/\D/g, '').slice(0, 3))}
               placeholder="31"
+              min={1}
+              max={100}
               className="w-full h-14 text-3xl font-extrabold text-center rounded-xl border-2 border-border bg-input focus:outline-none focus:border-primary transition-colors font-tabular"
               autoFocus
             />
@@ -344,7 +348,7 @@ export function CartDetailSheet({
               className="w-full h-11 px-3 text-sm rounded-xl border border-border bg-input focus:outline-none focus:border-primary transition-colors"
             />
           </div>
-          {handoffStall && (
+          {handoffStall && Number(handoffStall) >= 1 && Number(handoffStall) <= 100 && (
             <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl text-center">
               <p className="text-sm font-semibold text-blue-800">
                 Stall {handoffStall}{handoffName ? ` · ${handoffName}` : ''}
@@ -353,7 +357,7 @@ export function CartDetailSheet({
           )}
           <button
             onClick={handleHandoff}
-            disabled={loading || !handoffStall}
+            disabled={loading || !handoffStall || Number(handoffStall) < 1 || Number(handoffStall) > 100}
             className="w-full h-14 rounded-xl bg-primary text-white text-base font-bold flex items-center justify-center gap-2 active:scale-95 transition-all duration-150 disabled:opacity-40"
           >
             {loading ? <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> : (

@@ -8,7 +8,7 @@ The first screen shows the important information: free carts, carts in use, bay 
 
 ## 2. Simple identity instead of passwords
 
-Vendors enter a stall number and name. This removes password problems during a busy morning. Stall numbers are limited to `1-20`, which prevents typing mistakes. This is suitable for a trusted market demo, but it is not strong security for financial or legal disputes.
+Vendors enter a stall number and name. This removes password problems during a busy morning. Stall numbers are limited to `1-100`, which prevents typing mistakes while allowing a larger market. This is suitable for a trusted market demo, but it is not strong security for financial or legal disputes.
 
 ## 3. One cart and one bay per vendor
 
