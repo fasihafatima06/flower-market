@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf7f5;
+  --foreground: #1a1410;
+  --primary: #4285F4;
+  --primary-foreground: #ffffff;
+  --secondary: #edede6;
+  --secondary-foreground: #3d3830;
+  --accent: #d4baab;
+  --accent-foreground: #3d3830;
+  --muted: #edede6;
+  --muted-foreground: #7a6e66;
+  --card: #ffffff;
+  --card-foreground: #1a1410;
+  --border: #ddd8d2;
+  --input: #edede6;
+  --ring: #4285F4;
+  --radius: 12px;
+  --font-sans: var(--font-plus-jakarta-sans), sans-serif;
+
+  --status-free: #22c55e;
+  --status-free-bg: #f0fdf4;
+  --status-free-text: #166534;
+  --status-mine: #4285F4;
+  --status-mine-bg: #eff6ff;
+  --status-mine-text: #1d4ed8;
+  --status-inuse: #f59e0b;
+  --status-inuse-bg: #fffbeb;
+  --status-inuse-text: #92400e;
+  --status-overdue: #ef4444;
+  --status-overdue-bg: #fef2f2;
+  --status-overdue-text: #991b1b;
+  --status-broken: #dc2626;
+  --status-broken-bg: #fef2f2;
+  --status-broken-text: #7f1d1d;
+  --status-lost: #7c3aed;
+  --status-lost-bg: #f5f3ff;
+  --status-lost-text: #4c1d95;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .font-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .status-free {
+    background-color: var(--status-free-bg);
+    color: var(--status-free-text);
+    border: 1px solid var(--status-free);
+  }
+  .status-mine {
+    background-color: var(--status-mine-bg);
+    color: var(--status-mine-text);
+    border: 1px solid var(--status-mine);
+  }
+  .status-inuse {
+    background-color: var(--status-inuse-bg);
+    color: var(--status-inuse-text);
+    border: 1px solid var(--status-inuse);
+  }
+  .status-overdue {
+    background-color: var(--status-overdue-bg);
+    color: var(--status-overdue-text);
+    border: 1px solid var(--status-overdue);
+  }
+  .status-broken {
+    background-color: var(--status-broken-bg);
+    color: var(--status-broken-text);
+    border: 1px solid var(--status-broken);
+  }
+  .status-lost {
+    background-color: var(--status-lost-bg);
+    color: var(--status-lost-text);
+    border: 1px solid var(--status-lost);
+  }
+  .bottom-sheet-overlay {
+    background-color: rgba(26, 20, 16, 0.5);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .tap-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  .pulse-live {
+    animation: pulse-live 2s ease-in-out infinite;
+  }
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .slide-up {
+    animation: slide-up 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  @keyframes slide-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .fade-in {
+    animation: fade-in 0.15s ease-out;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .toast-slide-up {
+    animation: toast-slide-up 0.2s ease-out;
+  }
+  @keyframes toast-slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
