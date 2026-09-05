@@ -1,6 +1,8 @@
 # FlowerMandi
 
-**Deployed app:** add the live app link here after deployment.
+**Live app:** [phenomenal-gaufre-451ee1.netlify.app](https://phenomenal-gaufre-451ee1.netlify.app/)
+
+**Demo video:** [Watch the FlowerMandi demo](https://youtu.be/zRa0R6uD48s)
 
 FlowerMandi is a simple mobile app for flower vendors who share handcarts and unloading bays during the morning rush.
 
