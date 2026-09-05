@@ -1,6 +1,6 @@
-# FlowerMandi
+# FlowerMarket
 
-FlowerMandi is a lightweight live dispatch board for a busy flower market. Vendors identify themselves with a stall number and name, then claim handcarts, reserve unloading bays, report equipment issues, and hand carts directly to another stall.
+FlowerMarket is a lightweight live dispatch board for a busy flower market. Vendors identify themselves with a stall number and name, then claim handcarts, reserve unloading bays, report equipment issues, and hand carts directly to another stall.
 
 ## Features
 
