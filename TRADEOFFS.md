@@ -1,21 +1,27 @@
 # Product Trade-offs
 
-## Designed for the 5 AM rush
+This note explains the choices made for vendors who may be using an older phone, working quickly, or dealing with weak internet.
 
-The primary actions are visible from the first screen, cart IDs are two digits, and actions use large touch targets. A vendor can identify a cart or bay with one hand and receive an immediate visual or toast confirmation.
+## 1. Fast actions over extra screens
 
-## Local-first state
+The first screen shows the important information: free carts, carts in use, bay availability, and recent activity. Buttons are large enough to tap with one thumb. Cart numbers are two digits so a vendor can type `04` quickly and avoid choosing the wrong cart.
 
-The app persists the vendor profile, cart ownership, reservations, and activity in local storage. This keeps the tool useful during unreliable connectivity and costs nothing on a free hosting tier. The trade-off is that two different devices do not automatically share state. A production version would add a small realtime database while keeping the same local cache as an offline fallback.
+## 2. Simple identity instead of passwords
 
-## Lightweight identity
+Vendors enter a stall number and name. This removes password problems during a busy morning. Stall numbers are limited to `1-20`, which prevents typing mistakes. This is suitable for a trusted market demo, but it is not strong security for financial or legal disputes.
 
-Stall number plus name avoids password friction and is appropriate for a trusted physical market. It is not strong authentication, so the interface treats handoffs and issue reports as visible market actions rather than privileged admin operations. Server-side identity would be needed where disputes have financial consequences.
+## 3. One cart and one bay per vendor
 
-## Fairness rules
+Each vendor can hold one cart and one bay booking. This is a simple fairness rule: one vendor cannot accidentally keep many shared resources while others wait. A vendor can release a cart, hand it to another stall, or cancel a booking when finished.
 
-Each vendor can hold one cart and one active bay reservation. A cart cannot be claimed when held, broken, lost, or overdue. A bay booking is rejected when its time window overlaps an existing reservation, preventing double booking caused by different slot selections.
+## 4. Clear handling of problems
 
-## Recovery over punishment
+Broken and lost carts stay visible on the board. Overdue carts are shown in red, but they are not removed automatically. This makes the problem clear without taking a cart away from someone while they may still be unloading. The market team can later mark a cart repaired or found.
 
-Overdue carts remain visible instead of being silently reclaimed. Vendors can report a broken or lost cart, and the market team can mark it repaired or found. This favors transparency and quick recovery over hidden automatic enforcement during a busy unloading window.
+## 5. Local saving for weak internet
+
+The app saves the current work on the same phone. A page refresh does not erase a vendor's profile, cart claim, booking, or activity. The downside is that two phones do not share changes in this prototype. A full market version would add a small shared database while keeping local saving as a backup.
+
+## 6. Why this is a prototype
+
+The design favors speed, clarity, and low cost over strict account security and multi-device synchronization. That makes it useful for testing the morning-rush workflow. Before real-world use, shared server data, proper vendor identity, and an admin process for disputes should be added.
