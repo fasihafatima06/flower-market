@@ -302,7 +302,7 @@ function LiveMarketBoardContent() {
               <Flower size={14} className="text-white" />
             </div>
             <div>
-              <span className="text-sm font-extrabold text-foreground tracking-tight">Flower Mandi</span>
+              <span className="text-sm font-extrabold text-foreground tracking-tight">FlowerMarket</span>
               <span className="ml-1.5 text-xs text-muted-foreground font-medium">Live Dispatch</span>
             </div>
           </div>

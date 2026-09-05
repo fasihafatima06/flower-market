@@ -16,7 +16,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'FlowerMandi — Live Mandi Dispatch',
+  title: 'FlowerMarket — Live Mandi Dispatch',
   description:
     'Lightweight live dispatch tool for managing shared handcarts and unloading bays during the flower market morning rush.',
   icons: {

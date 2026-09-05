@@ -45,7 +45,7 @@ export default function VendorSetupGate({ children }: { children: React.ReactNod
             <Flower size={32} className="text-white" />
           </div>
           <div className="text-center">
-            <h1 className="text-2xl font-extrabold text-foreground tracking-tight">Flower Mandi</h1>
+            <h1 className="text-2xl font-extrabold text-foreground tracking-tight">FlowerMarket</h1>
             <p className="text-sm text-muted-foreground font-medium">Live Dispatch</p>
           </div>
         </div>
