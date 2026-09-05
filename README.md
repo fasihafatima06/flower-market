@@ -1,53 +1,5 @@
 # FlowerMandi
 
-FlowerMandi is a mobile-first dispatch tool for a busy flower market. It helps vendors coordinate **20 shared handcarts** and **4 unloading bays** during the morning rush, when a few seconds and a clear status matter.
-
-## What It Solves
-
-Vendors can identify themselves with a stall number and name, see the current market board, claim a specific cart, reserve a bay, and recover from common problems without waiting for an administrator.
-
-### Core workflows
-
-- **Claim a cart:** enter a two-digit cart ID from `01` to `20`.
-- **Manage your cart:** release it, hand it directly to another stall, or report it broken/lost.
-- **Book a bay:** choose a 15-minute slot across four shared unloading bays.
-- **See the rush at a glance:** the board shows free carts, carts in use, overdue carts, issues, and bay occupancy.
-- **Recover exceptions:** overdue, broken, and lost equipment remains visible instead of disappearing from the board.
-
-## Product Decisions
-
-- Large touch targets and short actions support one-thumb use on screens below 380px wide.
-- Stall numbers are limited to `1-20`; carts use fixed IDs `01-20` to reduce input mistakes.
-- A vendor can hold one cart and one active/upcoming bay booking at a time.
-- Overlapping reservations are rejected, including overlaps created by different slot choices.
-- No password is required for the demo. The market context provides a lightweight trust model, while every handoff and issue is visible in activity history.
-
-See [TRADEOFFS.md](TRADEOFFS.md) for the one-page rationale behind these choices.
-
-## Tech Stack
-
-- Next.js 15 App Router
-- React 19 and TypeScript
-- Tailwind CSS
-- Zustand with local-storage persistence
-- Lucide icons and Sonner notifications
-
-## Run Locally
-
-Requirements: Node.js 20 or newer.
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:4028](http://localhost:4028).
-
-Available checks:
-
-```bash
-# FlowerMandi
-
 **Deployed app:** add the live app link here after deployment.
 
 FlowerMandi is a simple mobile app for flower vendors who share handcarts and unloading bays during the morning rush.
